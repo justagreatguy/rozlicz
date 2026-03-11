@@ -44,17 +44,23 @@ git push origin gh-pages
 
 ## Domain Pricing Research
 
-| Domain | Status | Est. Price | Where to Buy |
-|--------|--------|------------|--------------|
-| rozlicz.pl | Taken (resale) | $500-3000 | Aftermarket (sedo.com, dan.com) |
-| rozlicz.ai | Available | $100-150/year | Namecheap, Cloudflare |
-| rozlicz.io | Available | $30-50/year | Namecheap, Cloudflare |
-| rozlicz.app | Available | $15-20/year | Google Domains, Cloudflare |
+| Domain | Status | Est. Price | Where to Buy | Notes |
+|--------|--------|------------|--------------|-------|
+| **rozlicz.pl** | 🔴 Taken (resale) | $500-3000 | sedo.com, dan.com, after.market | Premium .pl, need negotiation |
+| **rozlicz.ai** | 🟢 Available | ~$100-150/year | Namecheap, Cloudflare | AI trend, good for tech brand |
+| **rozlicz.io** | 🟢 Available | ~$30-50/year | Namecheap, Cloudflare | Standard tech TLD |
+| **rozlicz.app** | 🟢 Available | ~$15-20/year | Google Domains, Cloudflare | Google's app-focused TLD |
+| **rozlicz.dev** | 🟢 Available | ~$15-20/year | Google Domains, Cloudflare | Developer-focused |
 
-### Recommended Action
-1. **For testing**: Use free `github.io` subdomain
-2. **For launch**: Buy `rozlicz.io` (~$40) or `rozlicz.app` (~$15)
-3. **Later**: Negotiate `rozlicz.pl` if brand gains traction
+### Where to Check Availability
+- https://www.namecheap.com/domains/
+- https://www.cloudflare.com/products/registrar/
+- https://domains.google.com/
+
+### My Recommendation
+1. **Phase 1 (testing)**: Use free `github.io` subdomain — $0
+2. **Phase 2 (launch)**: Buy `rozlicz.io` or `rozlicz.app` — $15-50/year
+3. **Phase 3 (growth)**: Negotiate `rozlicz.pl` — $500-1500 one-time
 
 ## Next Steps
 
