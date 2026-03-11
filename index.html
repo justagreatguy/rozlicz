@@ -154,11 +154,6 @@
         .faq-item.active .faq-answer {
             max-height: 500px;
         }
-        
-        .badge-special {
-            background: linear-gradient(135deg, rgba(57, 255, 20, 0.2), rgba(0, 245, 255, 0.2));
-            border: 1px solid rgba(57, 255, 20, 0.3);
-        }
     </style>
 </head>
 <body class="font-sans">
@@ -195,7 +190,8 @@
     <section class="relative min-h-screen flex items-center justify-center pt-20 pb-32">
         <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
             
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full badge-special mb-8">
+            <!-- Badge with glass style -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
                 <span class="w-2 h-2 bg-neon-green rounded-full animate-pulse"></span>
                 <span class="text-sm text-gray-300">Stworzone przez Księgowych z myślą o e-Commerce</span>
             </div>
@@ -261,38 +257,38 @@
                         </div>
                         
                         <div class="p-8 bg-[#0a0a0a]">
-                            <!-- Tax Cards with Pay Buttons -->
+                            <!-- Tax Cards with aligned buttons -->
                             <div class="grid md:grid-cols-3 gap-6 mb-8">
-                                <div class="card-dark rounded-2xl p-6">
+                                <div class="card-dark rounded-2xl p-6 flex flex-col">
                                     <div class="flex justify-between items-start mb-4">
                                         <span class="text-gray-500 text-sm">Szacowany PIT</span>
                                         <span class="text-neon-green text-xs px-2 py-1 rounded-full bg-neon-green/10">Liniowy</span>
                                     </div>
-                                    <div class="text-3xl font-bold text-white mb-4">4 280 zł</div>
-                                    <div class="text-green-400 text-sm mb-4">↓ 12% vs luty</div>
-                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold">Rozlicz →</button>
+                                    <div class="text-3xl font-bold text-white mb-2">4 280 zł</div>
+                                    <div class="text-green-400 text-sm mb-4 h-5">↓ 12% vs luty</div>
+                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold mt-auto">Rozlicz →</button>
                                 </div>
                                 
-                                <div class="card-dark rounded-2xl p-6">
+                                <div class="card-dark rounded-2xl p-6 flex flex-col">
                                     <div class="flex justify-between items-start mb-4">
                                         <span class="text-gray-500 text-sm">VAT do zapłaty</span>
                                         <span class="text-neon-cyan text-xs px-2 py-1 rounded-full bg-neon-cyan/10">Termin 25.03</span>
                                     </div>
-                                    <div class="text-3xl font-bold text-white mb-4">2 156 zł</div>
+                                    <div class="text-3xl font-bold text-white mb-2">2 156 zł</div>
                                     <div class="w-full bg-gray-800 rounded-full h-2 mb-4">
                                         <div class="bg-gradient-to-r from-neon-green to-neon-cyan h-2 rounded-full" style="width: 65%"></div>
                                     </div>
-                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold">Rozlicz →</button>
+                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold mt-auto">Rozlicz →</button>
                                 </div>
                                 
-                                <div class="card-dark rounded-2xl p-6">
+                                <div class="card-dark rounded-2xl p-6 flex flex-col">
                                     <div class="flex justify-between items-start mb-4">
                                         <span class="text-gray-500 text-sm">ZUS</span>
                                         <span class="text-neon-purple text-xs px-2 py-1 rounded-full bg-neon-purple/10">Mały ZUS</span>
                                     </div>
-                                    <div class="text-3xl font-bold text-white mb-4">1 078 zł</div>
-                                    <div class="text-gray-500 text-sm mb-4">Płatne do 15.03</div>
-                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold">Rozlicz →</button>
+                                    <div class="text-3xl font-bold text-white mb-2">1 078 zł</div>
+                                    <div class="text-gray-500 text-sm mb-4 h-5">Płatne do 15.03</div>
+                                    <button class="w-full py-3 btn-outline rounded-lg text-sm font-semibold mt-auto">Rozlicz →</button>
                                 </div>
                             </div>
                             
@@ -379,7 +375,7 @@
                         <svg class="w-7 h-7 text-neon-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Automatyczne wysyłanie deklaracji</h3>
-                    <p class="text-gray-400">ZUS DRA, JPK_VAT, PIT — generujemy i wysyłamy automatycznie. Ty tylko akceptujesz.</p>
+                    <p class="text-gray-400">ZUS DRA, JPK_VAT, PIT — generujemy i wysyłamy automatycznie.</p>
                 </div>
                 
                 <div class="card-dark rounded-2xl p-8 card-hover">
@@ -434,7 +430,7 @@
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 pt-4">Pracujemy wyłącznie z jednoosobowymi działalnościami gospodarczymi (JDG) prowadzącymi sprzedaż na rynku wewnętrznym (Polska). Obsługujemy sprzedaż przez Allegro, Amazon, Shopify i inne platformy e-commerce. Wymagamy aktywnego KSeF.</p>
+                        <p class="text-gray-400 pt-4">Tymczasowo pracujemy wyłącznie z jednoosobowymi działalnościami gospodarczymi (JDG). Pełna integracja z KSeF wymaga, aby sprzedaż była prowadzona przez systemy wystawiające faktury do KSeF — obsługujemy platformy takie jak Allegro, Amazon, Shopify, WooCommerce, PrestaShop i inne generujące faktury w KSeF.</p>
                     </div>
                 </div>
                 
@@ -444,7 +440,7 @@
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 pt-4">Pracujemy wyłącznie na fakturach z KSeF. Dokumenty poza KSeFem (paragony, faktury uproszczone) nie są uwzględniane w rozliczeniach podatkowych przez nasz system. Ważne: wszystkie przychody muszą być w KSeF (w przeciwnym razie nie zostaną ujęte w podatku), natomiast koszty poza KSeF nie zmniejszą podatku.</p>
+                        <p class="text-gray-400 pt-4">Pracujemy wyłącznie na fakturach z KSeF. Sprzedaż B2C może być dobrowolnie rejestrowana w KSeF — jeśli włączysz tę opcję w swoim systemie sprzedaży (np. w Apilo, Baselinker), wszystkie transakcje trafią do KSeF i zostaną uwzględnione w rozliczeniach. Wszystkie przychody muszą być w KSeF, aby zostały ujęte w podatku. Koszty poza KSeF nie zmniejszają podatku.</p>
                     </div>
                 </div>
                 
@@ -454,7 +450,7 @@
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 pt-4">Nie, obsługujemy wyłącznie JDG bez pracowników. W przypadku konieczności rozliczenia pracowników oferujemy usługę dodatkową poza systemem automatycznym — rozliczenia kadrowo-płacowe wykonywane są ręcznie przez naszych księgowych za dodatkową opłatą ustalaną indywidualnie.</p>
+                        <p class="text-gray-400 pt-4">Automatycznie system nie obsługuje pracowników. W przypadku konieczności rozliczenia pracowników oferujemy usługę dodatkową poza systemem automatycznym — rozliczenia kadrowo-płacowe wykonywane są ręcznie przez naszych księgowych za dodatkową opłatą ustalaną indywidualnie. Aby skorzystać z tej usługi, należy zaznaczyć to w zgłoszeniu.</p>
                     </div>
                 </div>
                 
@@ -464,7 +460,7 @@
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 pt-4">Gwarancja niekaralności oznacza, że bierzemy pełną odpowiedzialność za prawidłowość obliczeń podatkowych wykonanych przez nasz system. W przypadku błędu w obliczeniach spowodowanego naszym systemem — ponosimy odpowiedzialność karnoskarbową i finansową. Dodatkowo wszystkie obliczenia weryfikują kwalifikowani księgowi z doświadczeniem w branży e-commerce.</p>
+                        <p class="text-gray-400 pt-4">Gwarancja niekaralności oznacza, że bierzemy pełną odpowiedzialność za prawidłowość obliczeń podatkowych wykonanych przez nasz system. W przypadku błędu w obliczeniach spowodowanego naszym systemem — ponosimy odpowiedzialność karnoskarbową i finansową. Dodatkowo posiadamy ubezpieczenie OC. Wszystkie obliczenia weryfikują kwalifikowani księgowi z doświadczeniem w branży e-commerce.</p>
                     </div>
                 </div>
                 
@@ -474,7 +470,7 @@
                         <svg class="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
                     </div>
                     <div class="faq-answer">
-                        <p class="text-gray-400 pt-4">Wymagamy aktywnego KSeF oraz prowadzenia sprzedaży na rynku polskim. System działa w przeglądarce — nie ma potrzeby instalowania żadnego oprogramowania. Współpracujemy z platformami: Allegro, Amazon, Shopify, WooCommerce, PrestaShop i innymi generującymi faktury do KSeF.</p>
+                        <p class="text-gray-400 pt-4">Wymagamy aktywnego KSeF. System działa w przeglądarce — nie ma potrzeby instalowania żadnego oprogramowania. Współpracujemy z platformami: Allegro, Amazon, Shopify, WooCommerce, PrestaShop i innymi generującymi faktury do KSeF. Sprzedaż zagraniczna również może być rejestrowana w KSeF, więc nie ma ograniczeń geograficznych.</p>
                     </div>
                 </div>
             </div>
@@ -563,7 +559,7 @@
                             <button 
                                 type="submit"
                                 class="px-8 py-4 btn-neon rounded-xl whitespace-nowrap"
-003e
+                            >
                                 Zapisz się →
                             </button>
                         </div>
