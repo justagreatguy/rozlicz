@@ -1,0 +1,21 @@
+{
+  "name": "Rozlicz Fake Door Test - Allegro Sellers",
+  "objective": "traffic",
+  "daily_budget_pln": 50,
+  "audience": "allegro_sellers",
+  "creatives": [
+    {
+      "headline": "Automatyczna księgowość dla Allegro",
+      "body": "Przez 7 dni za darmo. Import z KSeF, podatki na żywo. Bez limitu faktur.",
+      "cta": "LEARN_MORE"
+    },
+    {
+      "headline": "400 zł i rozliczamy wszystko",
+      "body": "Zapomnij o Excelu. Księgowość która liczy się za Ciebie.",
+      "cta": "SIGN_UP"
+    }
+  ],
+  "landing_page": "https://rozlicz.app#start",
+  "duration_days": 14,
+  "test_hypothesis": "Allegro sellers respond to free trial offer with conversion >2%"
+}
