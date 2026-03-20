@@ -6,6 +6,25 @@
     <title>Rozlicz.app — Księgowość która liczy się za Ciebie</title>
     <meta name="description" content="Automatyczna księgowość dla e-commerce. Rozliczamy podatki w czasie rzeczywistym. 400 zł netto, bez limitu faktur.">
     
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID'); 
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -481,17 +500,22 @@
                         7 dni darmowego okresu próbnego. Bez karty kredytowej. Bez zobowiązań.
                     </p>
                     
-                    <form class="max-w-md mx-auto" onsubmit="event.preventDefault(); alert('Dziękujemy! Skontaktujemy się w ciągu 24h.');">
+                    <form id="signup-form" class="max-w-md mx-auto" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                         <div class="flex flex-col sm:flex-row gap-4">
                             <input 
                                 type="email" 
+                                name="email"
                                 placeholder="Twój email" 
                                 required
                                 class="flex-1 px-6 py-4 bg-[#111] border border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-neon-green transition"
                             >
                             
+                            <input type="hidden" name="source" value="rozlicz.app">
+                            <input type="hidden" name="_subject" value="Nowa rejestracja - Rozlicz.app">
+                            
                             <button 
                                 type="submit"
+                                id="submit-btn"
                                 class="px-8 py-4 btn-neon rounded-xl whitespace-nowrap"
                             >
                                 Zacznij za darmo →
@@ -500,11 +524,19 @@
                         
                         <div class="mt-4 text-left sm:text-center">
                             <label class="flex items-start sm:justify-center gap-3 cursor-pointer">
-                                <input type="checkbox" required class="mt-1 w-4 h-4 rounded border-gray-600 text-neon-green focus:ring-neon-green bg-[#111]">
+                                <input type="checkbox" name="consent" required class="mt-1 w-4 h-4 rounded border-gray-600 text-neon-green focus:ring-neon-green bg-[#111]">
                                 <span class="text-gray-500 text-sm">
                                     Akceptuję <a href="#" class="text-neon-green hover:underline">Regulamin</a> i <a href="#" class="text-neon-green hover:underline">Politykę prywatności</a>
                                 </span>
                             </label>
+                        </div>
+                        
+                        <div id="form-success" class="hidden mt-4 p-4 bg-neon-green/10 border border-neon-green/30 rounded-xl">
+                            <p class="text-neon-green font-medium">✅ Dziękujemy! Sprawdź email, wysłaliśmy potwierdzenie.</p>
+                        </div>
+                        
+                        <div id="form-error" class="hidden mt-4 p-4 bg-red-500/10 border border-red-500/30 rounded-xl">
+                            <p class="text-red-400">❌ Wystąpił błąd. Spróbuj ponownie lub napisz na kontakt@rozlicz.app</p>
                         </div>
                     </form>
                     
@@ -609,6 +641,78 @@
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 item.classList.toggle('active');
+            });
+        });
+        
+        // Form handling with Meta Pixel Lead tracking
+        const form = document.getElementById('signup-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('form-success');
+        const errorMsg = document.getElementById('form-error');
+        
+        if (form) {
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const email = form.querySelector('input[name="email"]').value;
+                const btnText = submitBtn.innerHTML;
+                
+                // Loading state
+                submitBtn.innerHTML = 'Wysyłanie...';
+                submitBtn.disabled = true;
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Track Lead event in Meta Pixel
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'Lead', {
+                                content_name: 'Free Trial Signup',
+                                content_category: 'JDG e-commerce',
+                                value: 0.00,
+                                currency: 'PLN'
+                            });
+                        }
+                        
+                        // Show success
+                        form.reset();
+                        successMsg.classList.remove('hidden');
+                        errorMsg.classList.add('hidden');
+                        
+                        // Hide success after 5 seconds
+                        setTimeout(() => {
+                            successMsg.classList.add('hidden');
+                        }, 5000);
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Form error:', error);
+                    errorMsg.classList.remove('hidden');
+                    successMsg.classList.add('hidden');
+                } finally {
+                    submitBtn.innerHTML = btnText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+        
+        // Track button clicks
+        document.querySelectorAll('a[href="#start"]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (typeof fbq !== 'undefined') {
+                    fbq('trackCustom', 'CTAClick', {
+                        button_text: btn.innerText,
+                        location: 'hero'
+                    });
+                }
             });
         });
     </script>
